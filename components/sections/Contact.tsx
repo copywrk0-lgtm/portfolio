@@ -1,0 +1,2 @@
+import { TextReveal } from "@/components/animation/TextReveal";
+export function Contact(){return <section className="contact" id="contact"><p>Have a project in mind?</p><TextReveal className="contact-title">Make your website hard to ignore.</TextReveal><a className="contact-link magnetic" href="mailto:hello@copywrk.com">hello@copywrk.com ↗</a><div className="contact-meta"><span>Delhi / Worldwide</span><span>Available for select projects</span></div></section>}
