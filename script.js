@@ -1,0 +1,2 @@
+const els=[...document.querySelectorAll('.project,.service,.section-head')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.animate([{opacity:0,transform:'translateY(24px)'},{opacity:1,transform:'translateY(0)'}],{duration:650,easing:'cubic-bezier(.2,.7,.2,1)',fill:'both'});io.unobserve(e.target)}}),{threshold:.08});els.forEach(e=>{e.style.opacity=.001;io.observe(e)});
