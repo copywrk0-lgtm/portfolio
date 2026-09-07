@@ -1,0 +1,79 @@
+.project-detail{overflow:hidden;background:var(--bg);color:var(--ink)}
+.project-detail-hero{min-height:calc(100svh - 78px);padding:5vh 3vw 3vh;display:flex;flex-direction:column;border-bottom:1px solid var(--line)}
+.project-detail-kicker{display:flex;justify-content:space-between;gap:20px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.project-detail-title{font-size:clamp(74px,12.1vw,188px);line-height:.78;letter-spacing:-.082em;font-weight:500;margin:8vh 0 7vh;max-width:1500px}
+.project-detail-meta{display:grid;grid-template-columns:minmax(320px,1.75fr) repeat(3,minmax(130px,.55fr));gap:4vw;margin-top:auto;padding-top:22px;border-top:1px solid var(--line)}
+.project-meta-block{min-width:0}
+.project-meta-label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:15px}
+.project-meta-block p,.project-meta-block a{margin:0;font-size:14px;line-height:1.48;max-width:520px}
+.project-meta-block:not(.project-meta-about) p{white-space:pre-line}
+.project-meta-link a{display:inline-block;border-bottom:1px solid currentColor;padding-bottom:3px}
+.project-scroll-cue{display:flex;justify-content:space-between;align-items:center;margin-top:6vh;padding-top:14px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.project-detail-cover{height:100svh;position:relative;overflow:hidden;background:#141414}
+.project-detail-cover .parallax-image{inset:-7% 0}
+.project-detail-cover .parallax-image-inner img{filter:saturate(.9)}
+.project-cover-caption{position:absolute;left:3vw;right:3vw;bottom:22px;z-index:3;display:flex;justify-content:space-between;gap:20px;color:#fff;font-size:10px;letter-spacing:.13em;text-transform:uppercase;mix-blend-mode:difference}
+.project-detail-statement{padding:17vh 3vw 16vh;display:grid;grid-template-columns:1fr 3fr;gap:3vw;border-bottom:1px solid var(--line)}
+.project-detail-statement>div{grid-column:1/-1;display:grid;grid-template-columns:1fr 3fr;gap:3vw}
+.project-section-index{font-size:10px;letter-spacing:.14em;text-transform:uppercase;margin:8px 0 0;color:var(--muted)}
+.project-detail-statement h2{margin:0;font-size:clamp(48px,6.8vw,108px);line-height:.93;letter-spacing:-.064em;font-weight:500;max-width:1260px}
+.project-detail-gallery{padding:0 3vw 16vh;display:grid;grid-template-columns:repeat(12,1fr);gap:2.2vw;align-items:start}
+.project-shot{margin:0;position:relative;overflow:visible}
+.project-shot>.parallax-image{position:relative;inset:auto;height:100%;min-height:inherit;overflow:hidden;background:#171717}
+.project-shot>.parallax-image .parallax-image-inner{position:absolute;inset:-7% 0}
+.project-shot figcaption{display:flex;justify-content:space-between;gap:16px;padding-top:10px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.project-shot-0{grid-column:1/-1;min-height:88svh}
+.project-shot-1{grid-column:1/span 7;min-height:76svh}
+.project-shot-2{grid-column:8/-1;min-height:61svh;margin-top:13vh}
+.project-shot-3{grid-column:2/span 10;min-height:84svh;margin-top:5vh}
+.project-detail-notes{padding:12vh 3vw 16vh;border-top:1px solid var(--line)}
+.project-notes-heading{display:grid;grid-template-columns:1fr 3fr;gap:3vw;padding-bottom:6vh}
+.project-notes-heading span{font-size:10px;letter-spacing:.14em;text-transform:uppercase}
+.project-notes-heading p{margin:0;font-size:13px;color:var(--muted)}
+.project-note-row{display:grid;grid-template-columns:1fr 3fr;gap:3vw;padding:31px 0;border-top:1px solid var(--line)}
+.project-note-row>span{font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--muted);padding-top:5px}
+.project-note-row p{margin:0;max-width:930px;font-size:clamp(22px,2.1vw,34px);line-height:1.22;letter-spacing:-.027em}
+.project-next{background:var(--dark);color:var(--bg);padding:10vh 3vw 5vh}
+.project-next-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#aaa;padding-bottom:6vh}
+.project-next-link{display:flex;justify-content:space-between;gap:30px;align-items:flex-end;border-top:1px solid rgba(255,255,255,.18);padding:4vh 0 5vh;font-size:clamp(64px,10vw,158px);line-height:.8;letter-spacing:-.075em;font-weight:500}
+.project-next-link b{font-size:.35em;font-weight:400;line-height:1}
+.project-next-media{height:54svh;position:relative;overflow:hidden}
+.project-next-media .parallax-image{inset:-8% 0}
+
+@media(max-width:900px){
+  .project-detail-meta{grid-template-columns:1.5fr 1fr;gap:4vh 6vw}
+  .project-detail-title{font-size:14vw}
+}
+
+@media(max-width:760px){
+  .project-detail-hero{min-height:calc(100svh - 66px);padding:5vh 18px 22px}
+  .project-detail-kicker{font-size:9px}
+  .project-detail-title{font-size:17vw;line-height:.82;margin:7vh 0 6vh}
+  .project-detail-meta{grid-template-columns:1fr 1fr;gap:4vh 18px;padding-top:18px}
+  .project-meta-about{grid-column:1/-1}
+  .project-meta-label{font-size:9px;margin-bottom:9px}
+  .project-meta-block p,.project-meta-block a{font-size:12px}
+  .project-scroll-cue{margin-top:5vh}
+  .project-detail-cover{height:72svh}
+  .project-cover-caption{left:18px;right:18px;bottom:14px;font-size:8px}
+  .project-detail-statement,.project-detail-statement>div{display:block}
+  .project-detail-statement{padding:10vh 18px 11vh}
+  .project-section-index{margin-bottom:5vh}
+  .project-detail-statement h2{font-size:12vw;line-height:.95}
+  .project-detail-gallery{padding:0 18px 10vh;display:block}
+  .project-shot{min-height:0!important;height:62svh;margin:0 0 7vh!important}
+  .project-shot-0{height:70svh}
+  .project-shot-2{height:54svh}
+  .project-shot figcaption{font-size:8px;padding-top:8px}
+  .project-detail-notes{padding:8vh 18px 10vh}
+  .project-notes-heading{display:block;padding-bottom:4vh}
+  .project-notes-heading p{margin-top:10px}
+  .project-note-row{grid-template-columns:1fr;padding:22px 0;gap:16px}
+  .project-note-row p{font-size:23px}
+  .project-next{padding:8vh 18px 26px}
+  .project-next-label{padding-bottom:4vh}
+  .project-next-link{font-size:14vw;padding:3vh 0 4vh}
+  .project-next-media{height:42svh}
+}
+
+@media(prefers-reduced-motion:reduce){.project-detail-cover .parallax-image,.project-shot>.parallax-image .parallax-image-inner,.project-next-media .parallax-image{inset:0}}
