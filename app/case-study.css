@@ -9,7 +9,7 @@
 .project-meta-block:not(.project-meta-about) p{white-space:pre-line}
 .project-meta-link a{display:inline-block;border-bottom:1px solid currentColor;padding-bottom:3px}
 .project-scroll-cue{display:flex;justify-content:space-between;align-items:center;margin-top:6vh;padding-top:14px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.project-detail-cover{height:100svh;position:relative;overflow:hidden;background:#141414}
+.project-detail-cover{height:100svh;position:relative;overflow:hidden;background:#c9c5bb}
 .project-detail-cover .parallax-image{inset:-7% 0}
 .project-detail-cover .parallax-image-inner img{filter:saturate(.9)}
 .project-cover-caption{position:absolute;left:3vw;right:3vw;bottom:22px;z-index:3;display:flex;justify-content:space-between;gap:20px;color:#fff;font-size:10px;letter-spacing:.13em;text-transform:uppercase;mix-blend-mode:difference}
@@ -19,8 +19,13 @@
 .project-detail-statement h2{margin:0;font-size:clamp(48px,6.8vw,108px);line-height:.93;letter-spacing:-.064em;font-weight:500;max-width:1260px}
 .project-detail-gallery{padding:0 3vw 16vh;display:grid;grid-template-columns:repeat(12,1fr);gap:2.2vw;align-items:start}
 .project-shot{margin:0;position:relative;overflow:visible}
-.project-shot>.parallax-image{position:relative;inset:auto;height:100%;min-height:inherit;overflow:hidden;background:#171717}
-.project-shot>.parallax-image .parallax-image-inner{position:absolute;inset:-7% 0}
+.project-shot-frame{height:100%;min-height:inherit;overflow:hidden;border:1px solid rgba(17,17,15,.16);box-shadow:0 18px 50px rgba(17,17,15,.08)}
+.project-shot-chrome{height:34px;background:rgba(240,239,233,.96);color:var(--ink);display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;padding:0 12px;border-bottom:1px solid rgba(17,17,15,.14);font-size:8px;letter-spacing:.13em;text-transform:uppercase}
+.project-shot-chrome span:nth-child(2){text-align:center}
+.project-shot-chrome span:last-child{text-align:right;color:var(--muted)}
+.project-shot-media{height:calc(100% - 34px);min-height:calc(inherit - 34px);position:relative;overflow:hidden}
+.project-shot-media>.parallax-image{position:relative;inset:auto;height:100%;min-height:inherit;overflow:hidden}
+.project-shot-media>.parallax-image .parallax-image-inner{position:absolute;inset:-7% 0}
 .project-shot figcaption{display:flex;justify-content:space-between;gap:16px;padding-top:10px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .project-shot-0{grid-column:1/-1;min-height:88svh}
 .project-shot-1{grid-column:1/span 7;min-height:76svh}
@@ -37,7 +42,7 @@
 .project-next-label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#aaa;padding-bottom:6vh}
 .project-next-link{display:flex;justify-content:space-between;gap:30px;align-items:flex-end;border-top:1px solid rgba(255,255,255,.18);padding:4vh 0 5vh;font-size:clamp(64px,10vw,158px);line-height:.8;letter-spacing:-.075em;font-weight:500}
 .project-next-link b{font-size:.35em;font-weight:400;line-height:1}
-.project-next-media{height:54svh;position:relative;overflow:hidden}
+.project-next-media{height:54svh;position:relative;overflow:hidden;background:#2a2925}
 .project-next-media .parallax-image{inset:-8% 0}
 
 @media(max-width:900px){
@@ -64,6 +69,11 @@
   .project-shot{min-height:0!important;height:62svh;margin:0 0 7vh!important}
   .project-shot-0{height:70svh}
   .project-shot-2{height:54svh}
+  .project-shot-frame{height:100%}
+  .project-shot-chrome{height:30px;font-size:7px;padding:0 9px}
+  .project-shot-chrome span:nth-child(2){display:none}
+  .project-shot-chrome{grid-template-columns:1fr auto}
+  .project-shot-media{height:calc(100% - 30px)}
   .project-shot figcaption{font-size:8px;padding-top:8px}
   .project-detail-notes{padding:8vh 18px 10vh}
   .project-notes-heading{display:block;padding-bottom:4vh}
@@ -76,4 +86,4 @@
   .project-next-media{height:42svh}
 }
 
-@media(prefers-reduced-motion:reduce){.project-detail-cover .parallax-image,.project-shot>.parallax-image .parallax-image-inner,.project-next-media .parallax-image{inset:0}}
+@media(prefers-reduced-motion:reduce){.project-detail-cover .parallax-image,.project-shot-media>.parallax-image .parallax-image-inner,.project-next-media .parallax-image{inset:0}}
