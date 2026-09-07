@@ -19,12 +19,12 @@
 .project-detail-statement h2{margin:0;font-size:clamp(48px,6.8vw,108px);line-height:.93;letter-spacing:-.064em;font-weight:500;max-width:1260px}
 .project-detail-gallery{padding:0 3vw 16vh;display:grid;grid-template-columns:repeat(12,1fr);gap:2.2vw;align-items:start}
 .project-shot{margin:0;position:relative;overflow:visible}
-.project-shot-frame{height:100%;min-height:inherit;overflow:hidden;border:1px solid rgba(17,17,15,.16);box-shadow:0 18px 50px rgba(17,17,15,.08)}
-.project-shot-chrome{height:34px;background:rgba(240,239,233,.96);color:var(--ink);display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;padding:0 12px;border-bottom:1px solid rgba(17,17,15,.14);font-size:8px;letter-spacing:.13em;text-transform:uppercase}
+.project-shot-frame{height:100%;min-height:inherit;overflow:hidden;border:1px solid rgba(17,17,15,.16);box-shadow:0 18px 50px rgba(17,17,15,.08);display:flex;flex-direction:column}
+.project-shot-chrome{height:34px;flex:0 0 34px;background:rgba(240,239,233,.96);color:var(--ink);display:grid;grid-template-columns:1fr 1fr 1fr;align-items:center;padding:0 12px;border-bottom:1px solid rgba(17,17,15,.14);font-size:8px;letter-spacing:.13em;text-transform:uppercase}
 .project-shot-chrome span:nth-child(2){text-align:center}
 .project-shot-chrome span:last-child{text-align:right;color:var(--muted)}
-.project-shot-media{height:calc(100% - 34px);min-height:calc(inherit - 34px);position:relative;overflow:hidden}
-.project-shot-media>.parallax-image{position:relative;inset:auto;height:100%;min-height:inherit;overflow:hidden}
+.project-shot-media{flex:1;min-height:0;position:relative;overflow:hidden}
+.project-shot-media>.parallax-image{position:absolute;inset:0;height:auto;overflow:hidden}
 .project-shot-media>.parallax-image .parallax-image-inner{position:absolute;inset:-7% 0}
 .project-shot figcaption{display:flex;justify-content:space-between;gap:16px;padding-top:10px;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .project-shot-0{grid-column:1/-1;min-height:88svh}
@@ -70,10 +70,8 @@
   .project-shot-0{height:70svh}
   .project-shot-2{height:54svh}
   .project-shot-frame{height:100%}
-  .project-shot-chrome{height:30px;font-size:7px;padding:0 9px}
+  .project-shot-chrome{height:30px;flex-basis:30px;font-size:7px;padding:0 9px;grid-template-columns:1fr auto}
   .project-shot-chrome span:nth-child(2){display:none}
-  .project-shot-chrome{grid-template-columns:1fr auto}
-  .project-shot-media{height:calc(100% - 30px)}
   .project-shot figcaption{font-size:8px;padding-top:8px}
   .project-detail-notes{padding:8vh 18px 10vh}
   .project-notes-heading{display:block;padding-bottom:4vh}
