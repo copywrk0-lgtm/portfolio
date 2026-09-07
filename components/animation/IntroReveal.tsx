@@ -30,8 +30,13 @@ export function IntroReveal() {
       .from(q(".intro-label span"), { yPercent: 120, duration: 0.65, stagger: 0.06 })
       .fromTo(
         q(".intro-sisyphus"),
-        { xPercent: -18, yPercent: 24 },
-        { xPercent: 88, yPercent: -36, duration: 1.8, ease: "power2.inOut" },
+        { x: 0, y: 0 },
+        {
+          x: () => Math.max(240, window.innerWidth * 0.62),
+          y: () => -Math.min(window.innerHeight * 0.24, window.innerWidth * 0.16),
+          duration: 1.8,
+          ease: "power2.inOut"
+        },
         0.28
       )
       .to(q(".intro-boulder"), { rotation: 680, duration: 1.8, ease: "none" }, 0.28)
