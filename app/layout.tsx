@@ -5,6 +5,7 @@ import "./pages.css";
 import "./mobile-nav.css";
 import "./rive-intro.css";
 import "./case-study.css";
+import "./polish.css";
 import { SmoothScroll } from "@/components/animation/SmoothScroll";
 import { PageTransition } from "@/components/animation/PageTransition";
 import { IntroReveal } from "@/components/animation/IntroReveal";
