@@ -21,7 +21,7 @@ export default function ServicesPage(){
     <main className="page-main">
       <section className="page-hero">
         <div className="page-kicker"><span>03 / Capabilities</span><span>Direction → launch</span></div>
-        <h1>From blank page<br/>to <em>live website.</em></h1>
+        <h1>From blank page<br/>to live website.</h1>
         <div className="page-hero-foot"><p>Copywrk handles the visual direction, design and build as one connected process so the finished site does not lose its character between Figma and production.</p><Link href="/contact">Talk about a project ↗</Link></div>
       </section>
 
@@ -34,7 +34,7 @@ export default function ServicesPage(){
       </section>
 
       <section className="page-section">
-        <div className="page-section-head"><span>Process</span><h2>Enough structure to stay sharp. Enough flexibility to keep the work <em>alive.</em></h2></div>
+        <div className="page-section-head"><span>Process</span><h2>Enough structure to stay sharp. Enough flexibility to keep the work alive.</h2></div>
         <div className="process-strip">
           <article className="process-block"><span>01 / Discover</span><h3>Understand</h3><p>Business, audience, offer, competitors and what the current site is failing to communicate.</p></article>
           <article className="process-block"><span>02 / Direction</span><h3>Define</h3><p>Set the visual idea, hierarchy and interaction language before production expands.</p></article>
@@ -45,7 +45,7 @@ export default function ServicesPage(){
 
       <section className="inner-cta">
         <span>Need the full thing rather than pieces?</span>
-        <Link href="/contact"><em>Build it with Copywrk.</em><b>↗</b></Link>
+        <Link href="/contact">Build it with Copywrk.<b>↗</b></Link>
       </section>
     </main>
     <Footer />
