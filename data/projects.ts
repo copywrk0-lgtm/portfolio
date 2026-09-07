@@ -60,14 +60,14 @@ export const projects: Project[] = [
     year: "2026",
     services: ["UX", "Web design", "Development"],
     liveUrl: "https://dentalclinicdrshekhar.vercel.app/",
-    cover: "/projects/dental-chair.jpg",
-    gallery: ["/projects/dental-chair.jpg", "/projects/dental-reception.jpg", "/projects/dental-treating.jpg"],
+    cover: "/projects/dental-treating.jpg",
+    gallery: ["/projects/dental-treating.jpg", "/projects/dental-reception.jpg", "/projects/dental.jpg"],
     headline: "Clinical credibility without the cold, generic clinic aesthetic.",
     summary: "A calm, conversion-aware website system designed to make treatment information easier to understand and the clinic easier to trust.",
     challenge: "Healthcare websites often become dense or visually interchangeable. The goal was to make essential information feel approachable without sacrificing professionalism.",
     direction: "A light visual system, generous whitespace and carefully paced content put trust first. Mobile layouts keep actions and treatment information within easy reach.",
     result: "A cleaner patient journey with stronger presentation, better hierarchy and a more considered digital first impression.",
-    accent: "#d8e9e6"
+    accent: "#c8ddd8"
   },
   {
     slug: "gb-motors",
