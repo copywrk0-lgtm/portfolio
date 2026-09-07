@@ -7,7 +7,6 @@ import "./rive-intro.css";
 import "./case-study.css";
 import { SmoothScroll } from "@/components/animation/SmoothScroll";
 import { PageTransition } from "@/components/animation/PageTransition";
-import { Cursor } from "@/components/animation/Cursor";
 import { IntroReveal } from "@/components/animation/IntroReveal";
 
 export const metadata: Metadata = {
@@ -24,7 +23,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <IntroReveal />
         <SmoothScroll />
         <PageTransition />
-        <Cursor />
         {children}
       </body>
     </html>
