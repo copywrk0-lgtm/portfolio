@@ -23,8 +23,13 @@ export const projects: Project[] = [
     year: "2026",
     services: ["Art direction", "Web design", "Development"],
     liveUrl: "https://wingscraft-entertainment.ardent-vale-0425.chatgpt.site/",
-    cover: "/projects/trinity-shop.jpg",
-    gallery: ["/projects/trinity-shop.jpg", "/projects/trinity-red-car.jpg", "/projects/trinity-services.jpg"],
+    cover: "https://images.unsplash.com/photo-1773745060497-4cc1df774c72?auto=format&fit=crop&fm=webp&ixlib=rb-4.1.0&q=82&w=1800",
+    gallery: [
+      "https://images.unsplash.com/photo-1773745060497-4cc1df774c72?auto=format&fit=crop&fm=webp&ixlib=rb-4.1.0&q=82&w=1800",
+      "https://images.unsplash.com/photo-1735052712489-f45220126a0c?auto=format&fit=crop&fm=webp&ixlib=rb-4.1.0&q=80&w=1500",
+      "https://images.unsplash.com/photo-1744805624954-a6686543c3ff?auto=format&fit=crop&fm=webp&ixlib=rb-4.1.0&q=80&w=1500",
+      "https://images.unsplash.com/photo-1722952934708-749c22eb2e58?auto=format&fit=crop&fm=webp&ixlib=rb-4.1.0&q=80&w=1500"
+    ],
     headline: "Luxury, movement and emotion — without the usual wedding-site clichés.",
     summary: "A premium digital direction for a wedding and event brand built around atmosphere, editorial scale and confident restraint.",
     challenge: "WingsCraft needed a digital presence that felt closer to a luxury editorial brand than a vendor catalogue. The work had to feel aspirational while staying easy to navigate on mobile.",
