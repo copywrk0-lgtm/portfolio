@@ -14,6 +14,13 @@ const capabilities = [
   ["04", "Launch", "Domain connection, deployment, QA and a clean handover when the site is ready to go live."],
 ];
 
+const principles = [
+  ["01", "Hierarchy", "Every page gets a clear visual order before motion enters the conversation."],
+  ["02", "Responsive intent", "Desktop and mobile are composed as related experiences, not resized copies."],
+  ["03", "Performance", "Loading, image behavior and interaction cost are treated as design decisions."],
+  ["04", "Restraint", "Motion earns its place by clarifying focus, rhythm or character."],
+];
+
 export function InteractiveShowcase() {
   const root = useRef<HTMLElement>(null);
 
@@ -34,6 +41,11 @@ export function InteractiveShowcase() {
           ".showcase-intro .intro-meta > *",
           { y: 20, opacity: 0, duration: 0.55, stagger: 0.07, ease: "power3.out" },
           "-=0.5"
+        )
+        .from(
+          ".hero-signal",
+          { opacity: 0, x: 24, duration: 0.55, ease: "power3.out" },
+          "-=0.45"
         );
 
       gsap.utils.toArray<HTMLElement>(".project-reel").forEach((chapter, index) => {
@@ -101,10 +113,9 @@ export function InteractiveShowcase() {
         if (ghost) {
           gsap.fromTo(
             ghost,
-            { xPercent: direction * 8, opacity: 0.04 },
+            { xPercent: direction * 8 },
             {
               xPercent: direction * -8,
-              opacity: 0.13,
               ease: "none",
               scrollTrigger: {
                 trigger: chapter,
@@ -147,6 +158,17 @@ export function InteractiveShowcase() {
         scrollTrigger: { trigger: ".studio-statement", start: "top 72%" },
       });
 
+      gsap.utils.toArray<HTMLElement>(".principle-card").forEach((card, index) => {
+        gsap.from(card, {
+          y: 34,
+          opacity: 0,
+          duration: 0.6,
+          delay: index * 0.03,
+          ease: "power3.out",
+          scrollTrigger: { trigger: card, start: "top 88%" },
+        });
+      });
+
       gsap.utils.toArray<HTMLElement>(".capability-row").forEach((row) => {
         gsap.from(row, {
           y: 42,
@@ -183,6 +205,11 @@ export function InteractiveShowcase() {
           <span className="intro-line"><span>Digital work</span></span>
           <span className="intro-line"><span>with a <em>pulse.</em></span></span>
         </h1>
+        <div className="hero-signal" aria-hidden="true">
+          <span className="hero-signal-label">Selected / 01—04</span>
+          <span className="hero-signal-line"><i /></span>
+          <span className="hero-signal-label">Scroll / explore</span>
+        </div>
         <div className="intro-meta intro-meta--bottom">
           <p>Copywrk designs and develops expressive websites for service businesses that refuse to look interchangeable.</p>
           <a href="#work">Scroll to explore ↓</a>
@@ -222,7 +249,7 @@ export function InteractiveShowcase() {
                   <span>copywrk / selected work</span>
                   <span>↗</span>
                 </div>
-                <div className="project-window-viewport" style={{ background: project.accent }}>
+                <div className="project-window-viewport media-surface" style={{ background: project.accent }}>
                   <div className="project-window-image">
                     <Image
                       src={project.cover}
@@ -270,9 +297,25 @@ export function InteractiveShowcase() {
         </div>
       </section>
 
+      <section className="showcase-method" aria-label="How Copywrk approaches the work">
+        <div className="method-intro">
+          <span>03 / System</span>
+          <h2>Different visual languages.<br/>Same production discipline.</h2>
+        </div>
+        <div className="method-grid">
+          {principles.map(([number, title, copy]) => (
+            <article className="principle-card" key={number}>
+              <span>{number}</span>
+              <h3>{title}</h3>
+              <p>{copy}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="showcase-capabilities" id="services">
         <div className="capabilities-head">
-          <span>03 / Capabilities</span>
+          <span>04 / Capabilities</span>
           <p>From first direction to production launch.</p>
         </div>
         <div className="capability-list">
@@ -288,7 +331,7 @@ export function InteractiveShowcase() {
       </section>
 
       <section className="showcase-contact" id="contact">
-        <div className="contact-kicker">04 / Start something worth showing</div>
+        <div className="contact-kicker">05 / Start something worth showing</div>
         <a className="contact-kinetic" href="mailto:copywrk0@gmail.com">
           <span>Have a project?</span>
           <span><em>Let&apos;s talk.</em> ↗</span>
