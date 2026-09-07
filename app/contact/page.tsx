@@ -13,7 +13,7 @@ export default function ContactPage(){
     <main className="contact-page-main">
       <section className="contact-page-hero">
         <div className="page-kicker"><span>04 / Contact</span><span>Delhi · Worldwide</span></div>
-        <h1>Have a site worth<br/><em>doing properly?</em></h1>
+        <h1>Have a site worth<br/>doing properly?</h1>
         <a className="contact-big-link" href="mailto:copywrk0@gmail.com">copywrk0@gmail.com ↗</a>
         <div className="contact-info-grid">
           <span>Web design + development</span>
