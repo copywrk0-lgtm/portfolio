@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   description: "Selected website design and development work by Copywrk."
 };
 
-const blurDataURL = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 14'%3E%3Crect width='20' height='14' fill='%23c9c5bb'/%3E%3C/svg%3E";
+const solidPlaceholder = (color:string) =>
+  `data:image/svg+xml,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 14"><rect width="20" height="14" fill="${color}"/></svg>`)}`;
 
 export default function WorkPage(){
   const [featured,...rest]=projects;
@@ -25,8 +26,8 @@ export default function WorkPage(){
 
       <section className="page-section">
         <div className="work-feature">
-          <Link className="work-feature-media" href={`/work/${featured.slug}`}>
-            <Image src={featured.cover} alt={`${featured.title} project`} fill sizes="(max-width: 760px) 100vw, 65vw" priority placeholder="blur" blurDataURL={blurDataURL} />
+          <Link className="work-feature-media" href={`/work/${featured.slug}`} style={{background:featured.accent}}>
+            <Image src={featured.cover} alt={`${featured.title} project`} fill sizes="(max-width: 760px) 100vw, 65vw" priority placeholder="blur" blurDataURL={solidPlaceholder(featured.accent)} />
           </Link>
           <div className="work-feature-copy">
             <span>Featured / {featured.year}</span>
