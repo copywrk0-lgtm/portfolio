@@ -22,18 +22,18 @@ export function InteractiveShowcase() {
     if (!root.current) return;
 
     const ctx = gsap.context(() => {
-      const intro = gsap.timeline({ delay: 0.45 });
+      const intro = gsap.timeline({ delay: 0.05 });
       intro
         .from(".showcase-intro .intro-line > span", {
           yPercent: 115,
-          duration: 1.15,
-          stagger: 0.1,
+          duration: 0.95,
+          stagger: 0.08,
           ease: "power4.out",
         })
         .from(
           ".showcase-intro .intro-meta > *",
-          { y: 24, opacity: 0, duration: 0.7, stagger: 0.08, ease: "power3.out" },
-          "-=0.55"
+          { y: 20, opacity: 0, duration: 0.55, stagger: 0.07, ease: "power3.out" },
+          "-=0.5"
         );
 
       gsap.utils.toArray<HTMLElement>(".project-reel").forEach((chapter, index) => {
@@ -84,7 +84,7 @@ export function InteractiveShowcase() {
         if (image) {
           gsap.fromTo(
             image,
-            { scale: 1.22 },
+            { scale: 1.18 },
             {
               scale: 1.02,
               ease: "none",
@@ -118,9 +118,9 @@ export function InteractiveShowcase() {
 
         if (copy) {
           gsap.from(copy, {
-            y: 56,
+            y: 44,
             opacity: 0,
-            duration: 0.8,
+            duration: 0.72,
             ease: "power3.out",
             scrollTrigger: { trigger: chapter, start: "top 50%" },
           });
@@ -128,10 +128,10 @@ export function InteractiveShowcase() {
 
         if (rails.length) {
           gsap.from(rails, {
-            y: 24,
+            y: 20,
             opacity: 0,
-            duration: 0.65,
-            stagger: 0.08,
+            duration: 0.55,
+            stagger: 0.07,
             ease: "power3.out",
             scrollTrigger: { trigger: chapter, start: "top 58%" },
           });
@@ -139,19 +139,19 @@ export function InteractiveShowcase() {
       });
 
       gsap.from(".statement-line > span", {
-        yPercent: 110,
-        rotate: 1.5,
-        duration: 1,
-        stagger: 0.1,
-        ease: "power4.out",
-        scrollTrigger: { trigger: ".studio-statement", start: "top 70%" },
+        y: 42,
+        opacity: 0,
+        duration: 0.72,
+        stagger: 0.08,
+        ease: "power3.out",
+        scrollTrigger: { trigger: ".studio-statement", start: "top 72%" },
       });
 
       gsap.utils.toArray<HTMLElement>(".capability-row").forEach((row) => {
         gsap.from(row, {
-          y: 55,
+          y: 42,
           opacity: 0,
-          duration: 0.85,
+          duration: 0.72,
           ease: "power3.out",
           scrollTrigger: { trigger: row, start: "top 88%" },
         });
@@ -159,7 +159,7 @@ export function InteractiveShowcase() {
 
       gsap.from(".contact-kinetic span", {
         yPercent: 105,
-        duration: 1.1,
+        duration: 1,
         stagger: 0.08,
         ease: "power4.out",
         scrollTrigger: { trigger: ".showcase-contact", start: "top 62%" },
@@ -222,7 +222,7 @@ export function InteractiveShowcase() {
                   <span>copywrk / selected work</span>
                   <span>↗</span>
                 </div>
-                <div className="project-window-viewport">
+                <div className="project-window-viewport" style={{ background: project.accent }}>
                   <div className="project-window-image">
                     <Image
                       src={project.cover}
@@ -230,6 +230,7 @@ export function InteractiveShowcase() {
                       fill
                       sizes="(max-width: 760px) 92vw, 74vw"
                       priority={index === 0}
+                      onLoad={(event) => event.currentTarget.classList.add("is-loaded")}
                     />
                   </div>
                   <div className="project-window-vignette" />
@@ -261,7 +262,7 @@ export function InteractiveShowcase() {
         <p className="statement-copy">
           <span className="statement-line"><span>Not another template.</span></span>
           <span className="statement-line"><span>Every interface gets</span></span>
-          <span className="statement-line"><span>its own <em>rhythm.</em></span></span>
+          <span className="statement-line"><span>its own rhythm.</span></span>
         </p>
         <div className="statement-foot">
           <p>Strategy where it matters. Restraint where it helps. Motion where it changes how the work feels.</p>
