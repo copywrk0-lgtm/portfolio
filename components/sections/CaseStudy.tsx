@@ -54,7 +54,7 @@ export function CaseStudy({ project, next }: { project: Project; next: Project }
         </section>
 
         <section className="project-detail-cover" style={{ background: project.accent }}>
-          <ParallaxImage src={project.cover} alt={`${project.title} cover`} />
+          <ParallaxImage src={project.cover} alt={`${project.title} cover`} placeholder={project.accent} priority />
           <div className="project-cover-caption">
             <span>{project.title}</span>
             <span>{project.sector}</span>
@@ -71,10 +71,19 @@ export function CaseStudy({ project, next }: { project: Project; next: Project }
         <section className="project-detail-gallery" aria-label={`${project.title} project gallery`}>
           {project.gallery.map((img, index) => (
             <figure className={`project-shot project-shot-${index % 4}`} key={`${img}-${index}`}>
-              <ParallaxImage src={img} alt={`${project.title} project view ${index + 1}`} />
+              <div className="project-shot-frame" style={{ background: project.accent }}>
+                <div className="project-shot-chrome">
+                  <span>{String(index + 1).padStart(2, "0")} / {String(project.gallery.length).padStart(2, "0")}</span>
+                  <span>{project.title}</span>
+                  <span>Copywrk ↗</span>
+                </div>
+                <div className="project-shot-media">
+                  <ParallaxImage src={img} alt={`${project.title} project view ${index + 1}`} placeholder={project.accent} />
+                </div>
+              </div>
               <figcaption>
-                <span>{String(index + 1).padStart(2, "0")}</span>
-                <span>{project.title}</span>
+                <span>{project.sector}</span>
+                <span>{project.services.slice(0, 2).join(" · ")}</span>
               </figcaption>
             </figure>
           ))}
@@ -107,7 +116,7 @@ export function CaseStudy({ project, next }: { project: Project; next: Project }
             <b>↗</b>
           </Link>
           <div className="project-next-media" style={{ background: next.accent }}>
-            <ParallaxImage src={next.cover} alt={`${next.title} preview`} />
+            <ParallaxImage src={next.cover} alt={`${next.title} preview`} placeholder={next.accent} />
           </div>
         </section>
       </main>
