@@ -36,33 +36,57 @@ export function InteractiveShowcase() {
           "-=0.55"
         );
 
-      gsap.utils.toArray<HTMLElement>(".showcase-chapter").forEach((chapter) => {
-        const frame = chapter.querySelector<HTMLElement>(".chapter-frame");
-        const image = chapter.querySelector<HTMLElement>(".chapter-image");
-        const title = chapter.querySelector<HTMLElement>(".chapter-title");
-        const meta = chapter.querySelectorAll<HTMLElement>(".chapter-reveal");
+      gsap.utils.toArray<HTMLElement>(".project-reel").forEach((chapter, index) => {
+        const projectWindow = chapter.querySelector<HTMLElement>(".project-window");
+        const image = chapter.querySelector<HTMLElement>(".project-window-image");
+        const ghost = chapter.querySelector<HTMLElement>(".project-ghost-title");
+        const copy = chapter.querySelector<HTMLElement>(".project-reel-copy");
+        const rails = chapter.querySelectorAll<HTMLElement>(".project-rail > *");
+        const direction = index % 2 === 0 ? -1 : 1;
 
-        if (frame && image) {
+        if (projectWindow) {
           gsap.fromTo(
-            frame,
-            { clipPath: "inset(12% 8% 12% 8% round 22px)" },
+            projectWindow,
             {
-              clipPath: "inset(0% 0% 0% 0% round 0px)",
+              xPercent: direction * 18,
+              rotate: direction * 5.5,
+              scale: 0.78,
+              yPercent: 9,
+            },
+            {
+              xPercent: 0,
+              rotate: 0,
+              scale: 1,
+              yPercent: 0,
               ease: "none",
               scrollTrigger: {
                 trigger: chapter,
-                start: "top 88%",
-                end: "top 22%",
-                scrub: 0.8,
+                start: "top 92%",
+                end: "top 24%",
+                scrub: 0.9,
               },
             }
           );
+
+          gsap.to(projectWindow, {
+            scale: 0.9,
+            yPercent: -8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: chapter,
+              start: "bottom 72%",
+              end: "bottom 12%",
+              scrub: 0.8,
+            },
+          });
+        }
+
+        if (image) {
           gsap.fromTo(
             image,
-            { scale: 1.16, yPercent: -3 },
+            { scale: 1.22 },
             {
               scale: 1.02,
-              yPercent: 3,
               ease: "none",
               scrollTrigger: {
                 trigger: chapter,
@@ -74,32 +98,42 @@ export function InteractiveShowcase() {
           );
         }
 
-        if (title) {
+        if (ghost) {
           gsap.fromTo(
-            title,
-            { yPercent: 42, opacity: 0 },
+            ghost,
+            { xPercent: direction * 8, opacity: 0.04 },
             {
-              yPercent: 0,
-              opacity: 1,
-              ease: "power3.out",
+              xPercent: direction * -8,
+              opacity: 0.13,
+              ease: "none",
               scrollTrigger: {
                 trigger: chapter,
-                start: "top 62%",
-                end: "top 28%",
-                scrub: 0.55,
+                start: "top 90%",
+                end: "bottom 20%",
+                scrub: 1,
               },
             }
           );
         }
 
-        if (meta.length) {
-          gsap.from(meta, {
-            y: 30,
+        if (copy) {
+          gsap.from(copy, {
+            y: 56,
             opacity: 0,
             duration: 0.8,
+            ease: "power3.out",
+            scrollTrigger: { trigger: chapter, start: "top 50%" },
+          });
+        }
+
+        if (rails.length) {
+          gsap.from(rails, {
+            y: 24,
+            opacity: 0,
+            duration: 0.65,
             stagger: 0.08,
             ease: "power3.out",
-            scrollTrigger: { trigger: chapter, start: "top 48%" },
+            scrollTrigger: { trigger: chapter, start: "top 58%" },
           });
         }
       });
@@ -158,41 +192,65 @@ export function InteractiveShowcase() {
       <section className="showcase-work" id="work" aria-label="Selected work">
         <div className="work-intro">
           <span>01 / Selected work</span>
-          <p>Four digital identities. Four different rhythms. No recycled visual system.</p>
+          <p>A moving project reel — each website treated like a piece on a gallery wall, not another portfolio card.</p>
         </div>
 
         {projects.map((project, index) => (
-          <article className="showcase-chapter" key={project.slug}>
-            <div className="chapter-stage">
-              <Link href={`/work/${project.slug}`} className="chapter-frame" aria-label={`View ${project.title} case study`}>
-                <div className="chapter-image">
-                  <Image
-                    src={project.cover}
-                    alt={`${project.title} website preview`}
-                    fill
-                    sizes="100vw"
-                    priority={index === 0}
-                  />
+          <article className={`project-reel project-reel-${index + 1}`} key={project.slug}>
+            <div className="project-reel-stage">
+              <div className="project-ghost" aria-hidden="true">
+                <div className="project-ghost-title">{project.title}</div>
+              </div>
+
+              <div className="project-rail project-rail-left">
+                <span>0{index + 1} / 0{projects.length}</span>
+                <span>{project.sector}</span>
+              </div>
+
+              <div className="project-rail project-rail-right">
+                <span>{project.year}</span>
+                <span>{project.services.slice(0, 2).join(" · ")}</span>
+              </div>
+
+              <Link
+                href={`/work/${project.slug}`}
+                className="project-window"
+                aria-label={`View ${project.title} case study`}
+              >
+                <div className="project-window-chrome">
+                  <span>{project.title}</span>
+                  <span>copywrk / selected work</span>
+                  <span>↗</span>
                 </div>
-                <div className="chapter-shade" />
-                <div className="chapter-top chapter-reveal">
-                  <span>0{index + 1}</span>
-                  <span>{project.sector}</span>
-                  <span>{project.year}</span>
-                </div>
-                <div className="chapter-title-wrap">
-                  <h2 className="chapter-title">{project.title}</h2>
-                </div>
-                <div className="chapter-bottom chapter-reveal">
-                  <p>{project.summary}</p>
-                  <span>View case study ↗</span>
+                <div className="project-window-viewport">
+                  <div className="project-window-image">
+                    <Image
+                      src={project.cover}
+                      alt={`${project.title} project preview`}
+                      fill
+                      sizes="(max-width: 760px) 92vw, 74vw"
+                      priority={index === 0}
+                    />
+                  </div>
+                  <div className="project-window-vignette" />
+                  <div className="project-window-title">{project.title}</div>
+                  <div className="project-window-open">Open case study ↗</div>
                 </div>
               </Link>
-              {project.liveUrl && (
-                <a className="chapter-live chapter-reveal" href={project.liveUrl} target="_blank" rel="noreferrer">
-                  Live site ↗
-                </a>
-              )}
+
+              <div className="project-reel-copy">
+                <p>{project.summary}</p>
+                <Link href={`/work/${project.slug}`}>Case study ↗</Link>
+                {project.liveUrl && (
+                  <a href={project.liveUrl} target="_blank" rel="noreferrer">Live site ↗</a>
+                )}
+              </div>
+
+              <div className="project-position" aria-hidden="true">
+                {projects.map((item, dotIndex) => (
+                  <span className={dotIndex === index ? "is-active" : ""} key={item.slug} />
+                ))}
+              </div>
             </div>
           </article>
         ))}
