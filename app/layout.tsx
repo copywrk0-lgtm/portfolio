@@ -4,6 +4,7 @@ import "./showcase.css";
 import "./pages.css";
 import "./mobile-nav.css";
 import "./rive-intro.css";
+import "./case-study.css";
 import { SmoothScroll } from "@/components/animation/SmoothScroll";
 import { PageTransition } from "@/components/animation/PageTransition";
 import { Cursor } from "@/components/animation/Cursor";
